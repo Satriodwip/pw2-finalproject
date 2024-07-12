@@ -58,7 +58,7 @@
                             Car Edit Form
                         </h3>
                     </div>
-                    <form action="/cars/{{ $car->id }}" method="POST">
+                    <form enctype="multipart/form-data" action="/cars/{{ $car->id }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="p-6.5">
@@ -75,7 +75,7 @@
                             </div>
 
                             <div class="mb-4.5">
-                                <label class="mb-3 block text-sm font-medium text-black dark:text-white"> Genre <span class="text-meta-1">*</span> </label>
+                                <label class="mb-3 block text-sm font-medium text-black dark:text-white"> Type <span class="text-meta-1">*</span> </label>
                                 <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent dark:bg-form-input">
                                     <select
                                         id="type_id"
@@ -111,10 +111,10 @@
                                     Photo
                                     <span class="text-meta-1">*</span> 
                                 </label>
+                                <img class="object-cover w-36 mb-2" src="/src/images/car/{{$car->photo}}" alt="">
                                 <input
                                     id="photo"
                                     name="photo"
-                                    value="{{$car->photo}}"
                                     type="file"
                                     placeholder="Enter photo link"
                                     class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
@@ -153,7 +153,7 @@
                             
                             <div class="mb-4.5">
                                 <label class="mb-3 block text-sm font-medium text-black dark:text-white"> 
-                                    Year Car
+                                    license_plate
                                     <span class="text-meta-1">*</span> 
                                 </label>
                                 <input

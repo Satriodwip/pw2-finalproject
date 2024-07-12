@@ -92,7 +92,7 @@ class CarController extends Controller
             $extension = $request->file('photo')->getClientOriginalExtension();
             $imageName = time(). '.'. $extension;
 
-            $request->file('photo')->storeAs('src/images/car', $imageName, 'public');
+            $request->file('photo')->storeAs('/src/images/car/', $imageName, 'public');
             $validatedData['photo'] = $imageName;
 
         }
